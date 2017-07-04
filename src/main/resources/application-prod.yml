@@ -1,0 +1,11 @@
+server:
+  port: 8082
+  context-path: /demo
+
+
+name: erer
+age: 19
+
+user:
+  username: erer
+  age: 19
