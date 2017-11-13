@@ -1,5 +1,6 @@
 package com.mervyn.springboot.service.impl;
 
+import com.mervyn.springboot.exception.ServiceException;
 import com.mervyn.springboot.model.City;
 import com.mervyn.springboot.repository.CityRepository;
 import com.mervyn.springboot.service.CityService;
@@ -20,8 +21,19 @@ public class CityServiceImpl implements CityService {
     @Override
     @Transactional
     public City add(City city) {
-        City result = cityRepository.save(city);
+//        City scity = cityRepository.findByName(city.getName());
+//        cityRepository.delete(scity);
 //        System.out.println(1 / 0);
-        return result;
+        if (city.getId() == 1) {
+            throw new ServiceException("异常1");
+        } else {
+            throw new ServiceException("异常2");
+        }
+//        return cityRepository.save(city);
+    }
+
+    @Override
+    public City findById(Integer id) {
+        return cityRepository.findById(id);
     }
 }

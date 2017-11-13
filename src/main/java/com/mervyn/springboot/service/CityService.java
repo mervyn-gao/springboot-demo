@@ -8,4 +8,6 @@ import com.mervyn.springboot.model.City;
 public interface CityService {
 
     City add(City city);
+
+    City findById(Integer id);
 }
