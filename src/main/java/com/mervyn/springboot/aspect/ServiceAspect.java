@@ -3,19 +3,17 @@ package com.mervyn.springboot.aspect;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by mengran.gao on 2017/7/7.
  */
-@Component
-@Aspect
+//@Component
+//@Aspect
 //@Order(1)
-public class ServiceExceptionAspect {
+public class ServiceAspect {
 
 //    @Resource
 //    private LocaleMessageSourceService localeMessageSourceService;
@@ -34,7 +32,6 @@ public class ServiceExceptionAspect {
             result = proceedingJoinPoint.proceed();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
             throw e;
         }
 //        result.setMessage(localeMessageSourceService.getMessage(result.getMessage()));

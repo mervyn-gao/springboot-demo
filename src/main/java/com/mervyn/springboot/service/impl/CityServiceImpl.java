@@ -1,13 +1,13 @@
 package com.mervyn.springboot.service.impl;
 
-import com.mervyn.springboot.exception.ServiceException;
+import com.mervyn.springboot.exception.BusinessException;
 import com.mervyn.springboot.model.City;
-import com.mervyn.springboot.repository.CityRepository;
 import com.mervyn.springboot.service.CityService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.mervyn.springboot.util.JsonUtils;
+import com.mervyn.springboot.vo.BusinessStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
 
 /**
  * Created by mengran.gao on 2017/6/29.
@@ -15,25 +15,29 @@ import javax.transaction.Transactional;
 @Service
 public class CityServiceImpl implements CityService {
 
-    @Autowired
-    private CityRepository cityRepository;
+    private static Logger LOGGER = LoggerFactory.getLogger(CityServiceImpl.class);
+
+//    @Autowired
+//    private CityRepository cityRepository;
 
     @Override
-    @Transactional
+//    @Transactional
     public City add(City city) {
 //        City scity = cityRepository.findByName(city.getName());
 //        cityRepository.delete(scity);
 //        System.out.println(1 / 0);
+        LOGGER.info("入参：{}", JsonUtils.toJsonString(city));
         if (city.getId() == 1) {
-            throw new ServiceException("异常1");
+            throw new BusinessException(BusinessStatus.EX_1);
         } else {
-            throw new ServiceException("异常2");
+            throw new BusinessException(BusinessStatus.EX_2);
         }
 //        return cityRepository.save(city);
     }
 
     @Override
-    public City findById(Integer id) {
-        return cityRepository.findById(id);
+    public City findById(Long id) {
+        return null;
+//        return cityRepository.findById(id);
     }
 }

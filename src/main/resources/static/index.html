@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="export" type="button">导出</button>
+
+<script src="/demo/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    $(function (e) {
+        $("#export").click(function () {
+            var form = $('<form>').attr('style', 'display:none')
+                .attr('target', '').attr('method', 'post')
+                .attr('action', '/demo/exportUser');
+//            form.append($('<input>').attr('type', 'hidden').attr('name', '').attr('value', ''));
+            form.appendTo('body').submit().remove();
+        });
+    });
+</script>
+</body>
+</html>

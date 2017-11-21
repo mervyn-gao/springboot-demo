@@ -1,7 +1,8 @@
 server:
   port: 8081
   context-path: /demo
-
+#  error:
+#    path: /error
 
 name: yiyi
 age: 18
@@ -11,22 +12,39 @@ user:
   age: 18
 
 spring:
-  datasource:
-    url: jdbc:mysql://10.11.31.239:3306/demo?characterEncoding=utf8&useSSL=true
+  resources:
+    static-locations: classpath:/mystatic3,classpath:/mystatic2 # 若静态资源名称相同，则以配置在前的为准
+#  datasource:
+#    url: jdbc:mysql://10.11.28.239:3306/demo?characterEncoding=utf8&useSSL=true
 #    url: jdbc:mysql://192.168.1.200:3306/demo?characterEncoding=utf8&useSSL=true
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: gss@MFD*4299
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    open-in-view: true
-    database-platform: org.hibernate.dialect.MySQL5Dialect
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password: gss@MFD*4299
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    open-in-view: true
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
   messages:
     basename: i18n.messages
-
-
+  thymeleaf:
+    cache: false  # 默认开启
+#    content-type: text/html  默认
+#    encoding: utf-8  默认
+#    mode: HTML5 默认
+#    suffix: .html  默认
+#    prefix: classpath:/templates/  默认
+  redis:
+    host: 10.11.28.239
+    port: 6379
+    password: 123456
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
 
 
 

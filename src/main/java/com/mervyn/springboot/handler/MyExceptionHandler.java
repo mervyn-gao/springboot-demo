@@ -1,4 +1,4 @@
-package com.mervyn.springboot.exception;
+package com.mervyn.springboot.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,6 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-//@Configuration
 @Component
 public class MyExceptionHandler implements HandlerExceptionResolver {
 
@@ -39,9 +38,4 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
         String stackTraceMsg = sw.toString();
         return stackTraceMsg;
     }
-
-//    @Bean
-//    public ExceptionHandler createExceptionHandler() {
-//        return new ExceptionHandler();
-//    }
 }

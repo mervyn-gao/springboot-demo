@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by mengran.gao on 2017/6/28.
  */
 @RestController
-public class HelloController {
+@RequestMapping("/demo")
+public class DemoController {
 
     @Value("${name}")
     private String name;
@@ -21,8 +22,8 @@ public class HelloController {
     @Autowired
     private UserProperties userProperties;
 
-    @RequestMapping("/hello")
-    public String hello() {
+    @RequestMapping("/prop")
+    public String prop() {
         System.out.println(name + ", " + age);
         System.out.println(userProperties);
         return "Hello Spring Boot!!!";

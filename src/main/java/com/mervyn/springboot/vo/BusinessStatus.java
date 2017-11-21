@@ -1,20 +1,21 @@
 package com.mervyn.springboot.vo;
 
 /**
- * Created by mengran.gao on 2017/7/12.
+ * 业务异常编码
  * code编码规则：2:服务级别错误 001:模块 01:具体错误
  */
-public enum CodeEnum {
+public enum BusinessStatus {
 
     //通用请求成功
-    SUCCESS(200, "common.success"),
-    //服务器内部错误
-    SERVER_INNER_ERROR(500, "server.inner.error");
+    CHECK_ERROR(100101, "参数校验异常"),
+
+    EX_1(101, "异常1"),
+    EX_2(102, "异常2");
 
     private int code;
     private String message;
 
-    CodeEnum(int code, String message) {
+    BusinessStatus(int code, String message) {
         this.code = code;
         this.message = message;
     }

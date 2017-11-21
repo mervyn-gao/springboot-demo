@@ -1,17 +1,13 @@
 package com.mervyn.springboot.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 /**
  * Created by mengran.gao on 2017/6/29.
  */
-@Entity
+//@Entity
 public class City {
 
-    @Id
-    @GeneratedValue
+//    @Id
+//    @GeneratedValue
     private Long id;
 
     private String name;
@@ -40,5 +36,14 @@ public class City {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", state='" + state + '\'' +
+                '}';
     }
 }

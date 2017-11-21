@@ -9,5 +9,5 @@ public interface CityService {
 
     City add(City city);
 
-    City findById(Integer id);
+    City findById(Long id);
 }

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.mervyn.springboot.model.City;
-import com.mervyn.springboot.repository.CityRepository;
 import com.mervyn.springboot.service.CityService;
 import com.mervyn.springboot.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,8 @@ import java.util.Map;
 @RestController
 public class CityController {
 
-    @Autowired
-    private CityRepository cityRepository;
+//    @Autowired
+//    private CityRepository cityRepository;
 
     @Autowired
     private CityService cityService;
@@ -33,12 +32,13 @@ public class CityController {
     @RequestMapping(value = "/citys", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<City> list() {
-        return cityRepository.findAll();
+        return null;
+//        return cityRepository.findAll();
     }
 
     @RequestMapping(value = "/citys/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Result<City> list(@PathVariable Integer id) {
+    public Result<City> list(@PathVariable Long id) {
         return Result.success(cityService.findById(id));
     }
 
